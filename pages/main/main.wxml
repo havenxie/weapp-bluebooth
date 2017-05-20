@@ -1,0 +1,18 @@
+<!--main.wxml-->
+<view class="mainview">
+
+    <view class="recvView">
+        <label class="recvLabel" for="recvText"><text>接收区</text></label>
+        <textarea class="recvText" id="recvText" value="{{recvText}}" maxlength="-1" auto-focus="true" focus="true" fixed="true" bindinput="bindInput" bindconfirm="bindConfirm"/>
+    </view>
+    <view class="sendView">
+        <label class="sendLabel" for="sendText"><text>发送区</text></label>
+        <textarea class="sendText" id="sendText"
+         placeholder="请在此处输入要发送的值" value="{{sendText}}" maxlength="-1" auto-focus="true" focus="true" fixed="true" bindinput="bindInput" bindconfirm="bindConfirm"/>
+    </view>
+
+    <view class="conview">
+        <button class="searchBtn" type="primary" size="mini" loading="{{searchBtnLoading}}" plain="{{plain}}" disabled="{{!searchBtnEnable}}" bindtap="bindSearchBtn">Search</button>
+        <button class="sendBtn" type="primary" size="mini" loading="{{connectBtnLoading}}" plain="{{plain}}" disabled="{{!sendBtnEnable}}" bindtap="bindSendMsgBtn">Connect</button>
+    </view>
+</view>

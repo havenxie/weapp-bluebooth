@@ -1,0 +1,44 @@
+/* main.wxss */
+.mainview {
+    width: 100%;
+    height: 100%;
+}
+.recvView,
+.sendView {
+     margin-top: 20rpx;
+}
+
+.recvView {
+
+}
+
+.sendView {
+
+}
+
+.recvText,
+.sendText {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1rpx solid #1AAD19;
+    border-radius: 10rpx;
+}
+
+.sendText {
+    height: 120rpx;
+
+}
+
+.conview {
+    margin-top: 20rpx;
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.conview .searchBtn,
+.conview .sendBtn {
+    width: 25%;
+    font-size: 32rpx;
+}
