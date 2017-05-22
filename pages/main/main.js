@@ -104,7 +104,7 @@ Page({
         wx.closeBluetoothAdapter({
             success: function (res) {
                 // success  
-                console.log("success" + res)
+                console.log( res)
             }
         })
     },
@@ -112,8 +112,8 @@ Page({
     getBluetoothAdapterState: function () {
         wx.getBluetoothAdapterState({
             success: function (res) { 
-                console.log("res:" + res)
-                console.log("errMsg:" + res.errMsg)
+                //console.log(res)
+                
             }
         })
     },
@@ -229,33 +229,39 @@ Page({
     },
     /**************************/
     bindSearchBtn: function () {
+        var that = this;
         this.setData({
             searchBtnLoading: !this.data.searchBtnLoading
         })
         if (this.data.searchBtnLoading) {
+            
             wx.openBluetoothAdapter({
                 success: function (res) {
-                    console.log(res);
+                    //console.log(res);
                     wx.showToast({
-                        title: "初始化蓝牙适配器成功,正在搜索",
-                        duration: 2000
+                        title: "初始化蓝牙成功",
+                        duration: 1500
                     })
+                    //that.startBluetoothDevicesDiscovery();
+                    that.getBluetoothAdapterState();
                 },
                 fail: function (err) {
                     wx.showModal({
-                        title: "打开蓝牙失败",
-                        content: err.errMsg,
+                        title: "提示",
+                        content: "打开蓝牙失败，请检查蓝牙是否打开",
                         showCancel: false,
                     });
                 }
             })
         } else {
+            this.stopBluetoothDevicesDiscovery();
             wx.closeBluetoothAdapter({
                 success: function (res) {
-                    console.log(res);
+                    //console.log(res);
+                    
                 },
                 fail: function (err) {
-                    console.log(err.errMsg);
+                    //console.log(err.errMsg);
                 }
             })
         }

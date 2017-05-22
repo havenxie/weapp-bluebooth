@@ -41,4 +41,5 @@
 .conview .sendBtn {
     width: 25%;
     font-size: 32rpx;
+    text-align: center;
 }
